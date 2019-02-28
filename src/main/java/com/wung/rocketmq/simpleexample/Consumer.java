@@ -15,7 +15,9 @@ import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 public class Consumer {
 	
 	public static void main(String[] args) throws Exception {
-		DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("default_group");
+		// consumerGroup : 相同角色（消费的topic 必须相同）的消费者组成一个 group，用来完成负载均衡和故障容错机制。
+		//
+		DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("default_group2");
 		consumer.setNamesrvAddr("localhost:9876");
 		consumer.subscribe("TopicTest", "*");
 		consumer.registerMessageListener((MessageListenerConcurrently) (list, consumeConcurrentlyContext) -> {

@@ -21,7 +21,7 @@ public class SyncProducer {
 		producer.start();
 		
 		for (int i = 0; i < 10; i++) {
-			Message msg = new Message("TopicTest", "TagA", "Hellow RocketMQ".getBytes(RemotingHelper.DEFAULT_CHARSET));
+			Message msg = new Message("TopicTest", "TagA", "Hello RocketMQ".getBytes(RemotingHelper.DEFAULT_CHARSET));
 			SendResult sendResult = producer.send(msg);
 			System.out.printf("%s%n", sendResult);
 			if (i == 4) {
